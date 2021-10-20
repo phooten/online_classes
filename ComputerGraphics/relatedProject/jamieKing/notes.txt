@@ -1,0 +1,125 @@
+Last Video: https://www.youtube.com/watch?v=lNdhucyaj_c&list=PLRwVmtr-pp06qT6ckboaOhnm9FxmzHpbY&index=15
+
+
+Chronological Notes:
+	1. OpenGL Buffer Data
+		->  primative: basic elements like lines, curves, polygons
+		->  Buffer: 
+				Maintains state and information about buffer
+		->  Binding Point:
+				OpenGL has multiple theoretical binding points like GL_ARRAY_BUFFER or GL_ELEMENT_ARRAY_BUFFER. These points are just specific
+				numbers that replace "GL_ARRAY_BUFFER", which a user will assign a buffer ID to. If more help is needed, 
+				see reference 1.1 where jamie king talks about this in his game engine playlist. 
+		->  reference:
+				1.0 Initial Video: https://www.youtube.com/watch?v=W7QkP5s8PeM&list=PLRwVmtr-pp06qT6ckboaOhnm9FxmzHpbY&index=5
+				1.1 OpenGL Buffers: https://www.youtube.com/watch?v=ku-PAcZfz_E&list=PLRwVmtr-pp04XomGtm-abzb-2M1xszjFx&index=132
+	
+	2. OpenGL Hello World Triangle
+		-> Attributes:
+				To get attributes down to graphics card RAM, you have to first enable the attribute for OpenGL, like glEnableVertexAttribArray();
+				In this case, the vertex attrib will be position, but attributes can be position, color, normals, etc. Not too much enphasis right now.    
+		-> glDrawArrays():
+				gets data out of ram and draws it. "specifies multiple geometric primatives with few subroutune calls"
+		->  reference:
+				2.0 Initial Video: https://www.youtube.com/watch?v=Dyue3MzJDss&list=PLRwVmtr-pp06qT6ckboaOhnm9FxmzHpbY&index=5
+		
+	3. OpenGL Two Triangle
+		-> Winding Order: 
+				The order of verticies used to create a shape
+		->  reference:
+				3.0 Initial Video:
+
+	4. OpenGL Element Array Buffers
+		-> GL_ELEMENT_ARRAY_BUFFER:
+				used this buffer to draw the order of which verticies should be drawn: {0, 1, 2,   0, 3, 4}. So to recap, in the video
+				Jamie used GL_ARRAY_BUFFER to define points to be drawn, then GL_ELEMENT_ARRAY_BUFFER as the order to be drawn in.
+				He also use glDrawElements instead of glDrawArray() like in his last video
+		-> uShort
+				Generally 3-D models fall well within the range of having a ushort amount of points. 
+		->  reference:
+				4.0 Initial Video: https://www.youtube.com/watch?v=ZSsJbJ2hviI&list=PLRwVmtr-pp06qT6ckboaOhnm9FxmzHpbY&index=7
+	
+	5. OpenGL Vertex Colors	
+		->  Stride:
+				Distance in bytes between attributes in a dataset being passed. "The begining of an attribute to the begining of the next attribute"
+		-> glEnableVertexAttribArray(1):
+				in the previous video, we make the postion equal to 0, and now we are adding color, so it would be the second attribute, or 1.
+				The only thing OpenGL assumes is that glEnableVertexAttribArray(0) is position. Any number after will be general data, so to use it
+				for color per say, we would have to specify it.  
+		->  reference:
+				5.0 Initial Video: https://www.youtube.com/watch?v=-59ko_blmnY&list=PLRwVmtr-pp06qT6ckboaOhnm9FxmzHpbY&index=9
+		
+	6.	OpenGL Vertex and Fragment Shaders
+		->	Why triangles aren't red:
+				OpenGL only assumes the 0th atrribute is position and nothing else. Since the color of the verticies are atrribute 1, we 
+				must tell openGL that they are color. 
+		->  Graphics Pipeline:
+				We can customize the order in which things are executed. There are many shaders, but the two big ones are Vertex Shader and Fragment Shader.
+				OpenGL implements interpolation, which gradiates between two points of different colors. Each pixel has to go through the shaders, so executing
+				them on a grapics card saves a ton of time, since they are really good at parallel tasks, while CPU's are not. 
+		->  reference:
+				6.0 Initial Video: https://www.youtube.com/watch?v=vnmAA4VUIhM&list=PLRwVmtr-pp06qT6ckboaOhnm9FxmzHpbY&index=10
+	
+	7.	OpenGL Compiling GLSL Shaders
+		-> 	Shader Code:
+				GLSL is code executed on the graphics card which is compiled in the program and sent to the card. Write Shader code as text, create Shader Object glCreateShader, 
+				link text to glShaderSource, glCompileShader, glCreateProgram, glAttachShader, glLinkProgram
+				Another key point is that the vertex shader runs as many times as there are veticies passed, so in a single triangle, it would run 3 times. The fragment shader
+				will run as many times as there are pixels between those points, so alot more than 3 times. If the 3 points are not the same color values, the hardware has 
+				to determine which pixel is which color inbetween or a blend of the three defined colors. This process is called interpolation. Jamie King has a video on LERP
+				(Linear Interpolations) which can be found in reference 7.2. Telling the hardware how to interpolate will be covered in later sections. 
+		->	Homogeneous Coordinates:
+				From my understanding, this is a system used to project points to a different dimension in order to scale all the points the same way without
+				changing relative position. More info can be found in reference 7.1
+		->  reference:
+				7.0.0  Initial Video pt. 1: https://www.youtube.com/watch?v=Le5QSL0kZ-Q&list=PLRwVmtr-pp06qT6ckboaOhnm9FxmzHpbY&index=11
+				7.0.1  Initial Video pt. 2: https://www.youtube.com/watch?v=-N-ncMdwfAU&list=PLRwVmtr-pp06qT6ckboaOhnm9FxmzHpbY&index=12
+				7.0.2  Initial Video pt. 3: https://www.youtube.com/watch?v=g37cMNcYnN0&list=PLRwVmtr-pp06qT6ckboaOhnm9FxmzHpbY&index=14
+				7.1 Homogeneous Coordinates: https://www.youtube.com/watch?v=AyW4Y8APjK4 (pt2. https://www.youtube.com/watch?v=2Snoepcmi9U&list=PLRwVmtr-pp04XomGtm-abzb-2M1xszjFx&index=77)
+				7.2 LERP: https://www.youtube.com/watch?v=0MHkgPqc-P4
+	
+	8.	
+		->  reference:
+				8.0 Initial Video:
+	9.	
+		->  reference:
+				9.0 Initial Video:
+	10.	
+		->  reference:
+				10.0 Initial Video:
+	11.	
+		->  reference:
+				11.0 Initial Video:
+	12.	
+		->  reference:
+				12.0 Initial Video:
+	13.	
+		->  reference:
+				13.0 Initial Video:
+	14.	
+		->  reference:
+				14.0 Initial Video:
+	15.	
+		->  reference:
+				15.0 Initial Video:
+
+Notes:
+	- Graphics cards are eally good at running processes in parallel. i.e. Coloring in pixels. On a CPU it would take much longer 
+	- Member Functions
+
+Terms:
+	Primative
+	Winding order
+	Triangle Fans
+	Triangle strips
+	graphics Pipeline
+	Vertex Shader - Needs to output position on the screen (Position) and any other data the coder wants to (Custom Data)
+	Fragment shader - Takes 'Custom Data' from Vertex shader and uses it to manipulate sections of pixels. It needs to return an RGB Color.
+	Pixel - Picture Element
+	Shaders - Code that runs/executes on graphics cards
+	stride - (in context of openGL: begining of one attribute to the begining of another)
+
+Hotkey:
+	- Try this for VScode -> CTRL+SHFT+"SPACE" should show what arguments a functino is asking for
+
+

@@ -1,0 +1,3 @@
+5 - OpenGL Tutorial 5 - Shaders: 
+    ->  Interpolation: If a primative has different colors for it's vertices, then OpenGL will automatically
+        create a gradiant between the points

@@ -1,0 +1,19 @@
+ALIAS:
+
+// ENDED UP JUST MAKING THIS IN THE LINUX PARTITION
+X. 'gogithub'
+      - Command: 'alias gogithub='cd ../../mnt/c/Users/parke/Desktop/Coding/github/''
+      - everytime I open linux, it takes a long time to navigate out of the linux
+        and into the desktop file.
+
+X. 'golinux'
+      - Command: 'alias golinux='cd ../../../../../../../home/koffee_linux/''
+      - same reason as number 1
+
+
+OTHER:
+1. changing terminal prompt
+      - export PS1='\u@\h: '
+      - export PS1='\e[1;35m[ linux \e[1;36m\W \e[1;35m]\$ \e[m'
+          - Hides the lengthy directory like:
+                /mnt/c/Users/parke/Desktop/Coding/github/Computer-Graphic-Images-Class/Chapter 1/notes/example code/glsquare$

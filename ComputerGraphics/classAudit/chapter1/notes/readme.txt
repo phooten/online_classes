@@ -1,0 +1,1 @@
+These files were used take general notes about the concepts and programs discussed in chapter 1

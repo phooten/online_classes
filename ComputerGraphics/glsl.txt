@@ -1,0 +1,35 @@
+Sample:
+    //-------------------------------------------------
+    #version 330 core
+    layout(location=0) in vec3 pos;
+
+    uniform float scale;
+
+    void main()
+    {
+        //gl_Position = vec4(pos.x + scale, pos.y + scale, posy.z + scale, 1.0)
+        gl_Position = vec4(pos + scale, 1.0)
+    }
+    //-------------------------------------------------
+
+
+Notes:
+    - anything in the main() function executes per pixel
+    - layout(qualifier1, qualifier2 = #, ...) variable definition
+        Layouts help openGL read the vertex data it recieves. In this case, on the 0th layout, there is a vector with 
+        length of 3 bound to "pos".  
+    - out vec4 fragColor:
+        We are telling the graphics card, we will output 4 float values packed into a vector 
+    - uniform:
+        declares variables that can be accessed by other shaders. Don't declare a uniform unless youre going to use it. 
+
+Variables/Terms:
+    Vec4  ->
+    vUV.s
+    vUV.t
+    Swizzle:    .st, .rgba, .xyzw
+
+References:
+    - 
+    - (12 minutes in) https://www.youtube.com/watch?v=QtrzuSFfsSo  (Left off at 29 minutes) - 9/18/2021
+
